@@ -79,7 +79,7 @@ class BigQueryDryRun : DumbAwareAction() {
     val size = statistics.totalBytesProcessed * 1.0
 
     val formattedSize = when {
-      size < 1 shl 10 -> "%f B".format(size)
+      size < 1 shl 10 -> "%.0f B".format(size)
       size < 1 shl 20 -> "%.1f KB".format(size / (1 shl 10))
       size < 1 shl 30 -> "%.1f MB".format(size / (1 shl 20))
       else -> "%,.1f GB".format(size / (1 shl 30))
